@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="./components/Rotation.js"></script>
+
+  </head>
+
+  <body>
+    <a-scene background="color:#026F90">
+
+      <a-entity id="look" look-controls camera position="0 7 22"></a-entity>
+
+      <!--Asset Management-->
+      <a-assets timeout="10000"> 
+               
+        <a-asset-item
+          id="terrainMap"
+          src="./assets/terrain/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="diver"
+          src="./assets/diver/scene.gltf"
+        ></a-asset-item>
+        
+      </a-assets>
+
+      <!-- Terrain  -->
+      <a-entity
+        id="terrain"
+        gltf-model="#terrainMap"
+        position="0 0 0"
+        scale="0.15 0.15 0.15"
+        terrain-rotation-reader
+      ></a-entity>
+
+      <a-sphere color="#1e5b94" position="0 -47 0" radius="50" opacity="0.6" ></a-sphere>
+
+      <a-entity id="diver-model"
+      gltf-model = "#diver"
+      position = "0 -2.5 11"
+      scale = "0.032 0.025 0.035"
+      rotation = "0 0 0"
+      diver-rotation-reader
+      ></a-entity>
+      
+    </a-scene>
+  </body>
+</html>
